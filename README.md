@@ -19,7 +19,7 @@ Niu WLOC 是基于 [popjoke/wloc-9-](https://github.com/popjoke/wloc-9-) 定制�
 | Stash | [https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.stoverride](https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.stoverride) |
 | Shadowrocket | [https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.module](https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.module) |
 
-选点页面：[https://wloc.niufly.top/](https://wloc.niufly.top/)。
+选点页面：自行部署
 
 [浏览源码](https://github.com/popjoke/niu-wloc) · [部署到 Cloudflare Workers](https://deploy.workers.cloudflare.com/?url=https://github.com/popjoke/niu-wloc/tree/main/worker)
 <!-- subscriptions:end -->
