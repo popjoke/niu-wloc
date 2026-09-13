@@ -22,6 +22,14 @@ app.get("/api/parse", async (c) => {
   const raw = c.req.query("u") || "";
   const cs = (c.req.query("cs") || "").toLowerCase();
   const fmt = (c.req.query("format") || "").toLowerCase();
+  const inputHint = (() => {
+    try {
+      const u = new URL(raw);
+      return `${u.hostname}${u.pathname}`;
+    } catch {
+      return raw ? `non-url:length=${String(raw).length}` : "empty";
+    }
+  })();
   try {
     let { lat, lon, name, src } = await parseCoords(raw);
     // 默认按来源自动换算; cs=none 强制不转换, cs=gcj/bd 强制按指定坐标系转换。
@@ -34,10 +42,12 @@ app.get("/api/parse", async (c) => {
     lat = round6(lat);
     lon = round6(lon);
     name = name || "";
+    console.log(JSON.stringify({ event: "parse", ok: true, input: inputHint, src, hasName: Boolean(name) }));
     c.header("Access-Control-Allow-Origin", "*");
     if (fmt === "json") return c.json({ lat, lon, name });
     return c.text(`lat=${lat}&lon=${lon}`);
   } catch (e) {
+    console.log(JSON.stringify({ event: "parse", ok: false, input: inputHint, error: String(e && e.message ? e.message : e) }));
     c.header("Access-Control-Allow-Origin", "*");
     return c.json({ error: String(e && e.message ? e.message : e) }, 422);
   }
