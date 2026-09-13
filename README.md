@@ -1,10 +1,10 @@
-<p align="center"><img src="wloc.jpg" width="144" alt="WLOC 图标" /></p>
+<p align="center"><img src="wloc.jpg" width="144" alt="Niu WLOC 图标" /></p>
 
-# WLOC 社区维护版
+# Niu WLOC
 
-基于 Yu9191/wloc 恢复的 Apple 网络定位修改工具。通过 Surge、Quantumult X、Loon、Stash 或 Shadowrocket 拦截 Wi-Fi/基站定位响应，配合网页选点和本地持久化存储使用。
+Niu WLOC 是基于 [popjoke/wloc-9-](https://github.com/popjoke/wloc-9-) 定制的 Apple 网络定位修改工具。通过 Surge、Quantumult X、Loon、Stash 或 Shadowrocket 拦截 Wi-Fi/基站定位响应，配合自有选点页面和本地持久化存储使用。
 
-本分支保留上游作者及贡献者记录，以 `529fcd8`（2026-09-04）为恢复基线。它不是原作者官方仓库，也不能修改 GPS 硬件定位。
+本项目保留上游作者、贡献者、提交历史和 AGPL-3.0 许可证，以 `529fcd8`（2026-09-04）为恢复基线。它不是原作者官方仓库，也不能修改 GPS 硬件定位。
 
 > **兼容性状态：** 上游 README 报告 iOS 27 beta 6 起存在 WLOC TLS/MITM 限制。本维护版尚未进行真机复核，不承诺新版系统可用。网页保存成功仅表示配置写入成功，不代表系统定位已改变。
 
@@ -13,15 +13,15 @@
 <!-- subscriptions:start -->
 | 客户端 | 订阅地址 |
 | --- | --- |
-| Surge / Egern | [https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.sgmodule](https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.sgmodule) |
-| Quantumult X | [https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.conf](https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.conf) |
-| Loon | [https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.lpx](https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.lpx) |
-| Stash | [https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.stoverride](https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.stoverride) |
-| Shadowrocket | [https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.module](https://raw.githubusercontent.com/xepes0/wloc/refs/heads/main/modules/wloc.module) |
+| Surge / Egern | [https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.sgmodule](https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.sgmodule) |
+| Quantumult X | [https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.conf](https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.conf) |
+| Loon | [https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.lpx](https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.lpx) |
+| Stash | [https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.stoverride](https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.stoverride) |
+| Shadowrocket | [https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.module](https://raw.githubusercontent.com/popjoke/niu-wloc/refs/heads/main/modules/wloc.module) |
 
-选点页面：[https://wloc.333012.xyz/](https://wloc.333012.xyz/)。
+选点页面：[https://wloc.niufly.top/](https://wloc.niufly.top/)。
 
-[浏览源码](https://github.com/xepes0/wloc) · [部署到 Cloudflare Workers](https://deploy.workers.cloudflare.com/?url=https://github.com/xepes0/wloc/tree/main/worker)
+[浏览源码](https://github.com/popjoke/niu-wloc) · [部署到 Cloudflare Workers](https://deploy.workers.cloudflare.com/?url=https://github.com/popjoke/niu-wloc/tree/main/worker)
 <!-- subscriptions:end -->
 
 Egern 沿用上游 Surge 模块兼容说明，尚未单独复核。Stash 使用原生 `.stoverride`。
@@ -41,7 +41,7 @@ Egern 沿用上游 Surge 模块兼容说明，尚未单独复核。Stash 使用�
 2. 在苹果地图长按选点 → 共享 → 选择「wloc 设置地理位置」；高德地图可通过「分享 → 更多」进入分享菜单。
 3. 运行后打开地图验证结果。需要恢复时，运行「wloc 清理恢复位置」。若模块参数另设了坐标，还需关闭模块或恢复默认参数。
 
-> 设置位置指令基于原作者版本，由维护者将解析地址更新为 `https://wloc.333012.xyz/api/parse` 并重新分享；恢复位置指令仍为原作者分享。已安装的旧指令不会自动更新，请备份后安装新版或手动替换解析地址。尚未独立复核新版指令的真机运行结果。具体操作见[快捷指令迁移说明](docs/shortcut-guide.md#快捷指令)。
+> 现有 iCloud 设置位置指令基于原作者版本，分享内容可能仍使用旧解析服务。使用 Niu WLOC 前，请在指令中把解析接口改为 `https://wloc.niufly.top/api/parse`；恢复位置指令仍为原作者分享。已安装的旧指令不会自动更新。尚未独立复核该指令的真机运行结果，具体操作见[快捷指令迁移说明](docs/shortcut-guide.md#快捷指令)。
 
 ## 使用方法
 
@@ -117,7 +117,11 @@ npm run pages:build
 
 提交方式见 [CONTRIBUTING.md](CONTRIBUTING.md)；恢复来源和缺失内容见[来源记录](docs/PROVENANCE.md)；待处理问题、发布步骤及真机验证清单见[维护说明](docs/MAINTENANCE.md)。
 
-## 致谢
+## 致谢与来源
+
+- [xepes0/wloc](https://github.com/xepes0/wloc) - Niu WLOC 的上游社区维护项目
+- [popjoke/wloc-9-](https://github.com/popjoke/wloc-9-) - Niu WLOC 的直接整理基线
+- 原作者 Yu9191 及所有原贡献者 - 感谢原始实现、维护和兼容性工作
 
 - [proxypin-wloc-spoofer](https://github.com/FFF686868/proxypin-wloc-spoofer) - 原始 WLOC 定位修改思路 by FFF686868
 - [NSNanoCat/Util](https://github.com/NSNanoCat/util) - 跨平台脚本工具框架
