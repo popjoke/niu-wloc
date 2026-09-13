@@ -163,6 +163,18 @@ test("高德 URI: lnglat= / position= 是「经度,纬度」序", () => {
   );
 });
 
+test("高德 SSR 逆地理链接: lat/lng 查询参数", () => {
+  const u =
+    "https://www.amap.com/ssr/regeo?lat=25.60827217202098&lng=119.6237754821777&name=%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD";
+  near(extractFromString(u), { lat: 25.60827217202098, lon: 119.6237754821777, src: "amap" });
+  assert.equal(extractFromString(u).name, "中华人民共和国");
+  near(extractFromString("https://www.amap.com/ssr/regeo?lng=119.6237754821777&lat=25.60827217202098"), {
+    lat: 25.60827217202098,
+    lon: 119.6237754821777,
+    src: "amap",
+  });
+});
+
 test("越界坐标一律不返回", () => {
   // 兜底规则不带语义, 匹配到什么就是什么。值域校验是最后一道闸, 它不需要理解
   // 任何一种链接格式, 就能把「解析失败」和「解析成错的」区分开。

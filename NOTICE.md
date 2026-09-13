@@ -12,7 +12,7 @@
 
 | 内容 | 来源或说明 |
 | --- | --- |
-| WLOC 脚本及 Worker | Yu9191/wloc；仓库 LICENSE 为 AGPL-3.0 |
+| WLOC 脚本及 Worker | Yu9191/wloc；仓库 LICENSE 为 AGPL-3.0；Niu WLOC 对持久化坐标读取增加了空值与 `0,0` 防护 |
 | Hono | npm 锁文件记录 MIT；安装包自带许可证 |
 | Leaflet 1.9.4 | 网页通过 CDN 加载，带 SRI 校验；[官方许可证](https://github.com/Leaflet/Leaflet/blob/v1.9.4/LICENSE) |
 | 跨平台代理工具框架 | 上游致谢 NSNanoCat/Util；打包文件未恢复完整依赖构建清单 |

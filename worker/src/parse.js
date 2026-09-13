@@ -56,6 +56,13 @@ function extractRaw(s, opts) {
     /[?&]q=(-?\d{1,3}\.\d+)(?:,|%2C)(-?\d{1,3}\.\d+)(?:(?:,|%2C)((?:(?!,|%2C|&).)+))?/i
   );
   if (m) return { lat: +m[1], lon: +m[2], name: m[3] ? safeDecode(m[3]) : "", src: "amap" };
+  // 高德 SSR 逆地理链接使用独立的 lat/lng 查询参数，例如:
+  // /ssr/regeo?lat=25.608272&lng=119.623775&name=...
+  // 也兼容部分分享器生成的 lng/lat 顺序。
+  m = str.match(/(?:^|[?&])lat=(-?\d{1,3}\.\d+)(?:&|%26)lng=(-?\d{1,3}\.\d+)/i);
+  if (m) return { lat: +m[1], lon: +m[2], name: queryName(str), src: "amap" };
+  m = str.match(/(?:^|[?&])lng=(-?\d{1,3}\.\d+)(?:&|%26)lat=(-?\d{1,3}\.\d+)/i);
+  if (m) return { lat: +m[2], lon: +m[1], name: queryName(str), src: "amap" };
   // 高德 URI API 的 lnglat= / position= 是「经度,纬度」序, 与上面所有规则相反。
   // 不要照搬旧页面里的 location=/center= 规则: 那条也按 lon,lat 解, 但百度的
   // location= 实际是 lat,lng, 搬过来会把百度链接解颠倒。宁可少认一种也不要认错。

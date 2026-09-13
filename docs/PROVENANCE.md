@@ -17,6 +17,6 @@ GitHub 公共 API 对 `Yu9191/wloc` 和 `Yu9191` 用户均返回 404。它只证
 
 上游历史中曾有 `src/wloc-settings.js`，后在 `28e21ba` 删除；它是旧版片段，不能用于重建当前全部 dist。未找到完整 `wloc.js` 源码、根 package.json 或 Rollup 工程。查看旧代码可用 `git show 4821f11:src/wloc-settings.js`。
 
-[upstream-integrity.json](upstream-integrity.json) 记录恢复基线、两份 dist 和 LICENSE 的 SHA-256（规范化 LF 换行）。维护整理不改动这些文件。将来改动时应说明来源、建立测试并有意识地更新完整性记录。
+[upstream-integrity.json](upstream-integrity.json) 同时记录恢复基线文件与当前发布文件的 SHA-256（规范化 LF 换行）。Niu WLOC 对两份 dist 增加了无效持久化坐标保护，并在文件顶部标注修改日期；原始哈希仍保留在 `upstreamFiles` 中。将来改动时应说明来源、建立测试并有意识地更新完整性记录。
 
 本次本地另留 Git bundle 及恢复目录，它们被 .gitignore 排除，不混入发布仓库。原始版本始终可以通过 `git show 529fcd8:README.md` 等 Git 命令查看。

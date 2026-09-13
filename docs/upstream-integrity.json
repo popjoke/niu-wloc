@@ -1,8 +1,13 @@
 {
   "upstreamCommit": "529fcd841952571e79f40faf2d3e0ef90a7bdfa6",
-  "files": {
+  "upstreamFiles": {
     "dist/wloc.js": "a1b361e60f0b434585260fb59c65d1ddbe3bff89ace3639f592e7d8af432b3c1",
     "dist/wloc-settings.js": "cbff047a7f42055615ee19e208ddfc2ec66833e6f2b75555eac84f1c299a66cf",
+    "LICENSE": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+  },
+  "files": {
+    "dist/wloc.js": "24d780b393b7bb2e501789cbe4be7958d60cfb37c6db0fdb4f5ff9a568182507",
+    "dist/wloc-settings.js": "b8ce0c9641582c4b8b6eb5ab5ab59673f9a5eae2b17d63bdc88aa2d6e2e39087",
     "LICENSE": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
   }
 }
